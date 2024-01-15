@@ -1,21 +1,22 @@
-import { useEffect, useState } from 'react'
+import {  Route, Routes } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+
 import './App.css'
-import Meals from './components/Meals'
+import Home from './components/Home';
+import Categories from './Categories';
+import Area from './Area';
+
 
 function App() {
-  const [recipes,setRecipes] = useState(null)
-
-  useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
-      .then(res=>res.json())
-      .then(data => setRecipes(data.meals))
-  },[])
-
+  
   return (
-    <>
-      {recipes && recipes.map((recipe,index )=> <Meals key={index} recipe={recipe}/>)}
-      
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home />}/>
+      <Route path='/categories' element={<Categories />}/>
+      <Route path='/area' element={<Area />}/>
+    </Routes>
+  </BrowserRouter>
   )
 }
 

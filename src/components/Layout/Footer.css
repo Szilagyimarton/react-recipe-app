@@ -1,0 +1,19 @@
+footer{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  background-color: rgb(196, 191, 191);
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 5px  5px black;
+  margin-top:20px;
+  margin-bottom:5px
+}
+footer a{
+  text-decoration: unset;
+  color:unset ;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+ 
+  padding: 10px;
+}
