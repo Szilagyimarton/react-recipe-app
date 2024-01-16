@@ -1,6 +1,19 @@
-#recipes{
+html{
+  min-height: 100vh;
+}
+.recipes{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+}
+.backBtn{
+  display: flex;
+  justify-content: center;
+}
+
+.backBtn button{
+  padding: 10px;
+  text-transform: uppercase;
+  margin-top: 10px;
 }

@@ -3,8 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './App.css'
 import Home from './components/Home';
-import Categories from './Categories';
-import Area from './Area';
+import Categories from './components/Categories';
+import Area from './components/Areas';
 
 
 function App() {

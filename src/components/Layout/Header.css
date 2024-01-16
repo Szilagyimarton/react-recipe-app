@@ -16,3 +16,7 @@ header a{
  
   padding: 10px;
 }
+
+header a:hover{
+  background-color: darkgray;
+}
