@@ -15,7 +15,7 @@ function Area({area,setUrl,setBackFromSelectedArea}) {
       .then(data => setSelectdArea(data))
   })
   return (
-    <><div className='recipes'>
+    <div><div className='recipes'>
       {selectedArea && !clickedRecipe
       ?
         selectedArea.meals.map((meal, index) => (
@@ -32,7 +32,7 @@ function Area({area,setUrl,setBackFromSelectedArea}) {
           setUrl("list.php?a=list")
           setBackFromSelectedArea(true)
         } }>Back </Button>
-      </div></>
+      </div></div>
   )
 }
 

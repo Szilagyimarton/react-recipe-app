@@ -17,3 +17,9 @@ html{
   text-transform: uppercase;
   margin-top: 10px;
 }
+.areas, .categories{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}

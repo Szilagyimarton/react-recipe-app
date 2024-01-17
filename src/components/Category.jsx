@@ -16,9 +16,9 @@ function Category({ category,setBackFromSelectedCategory,setUrl}) {
        })
     
   },[])
-console.log(selectedCategory)
+
   return (
-    <><div className='recipes'>
+    <div><div className='recipes'>
       {selectedCategory &&
         <>
           {selectedCategory.meals && !clickedRecipe
@@ -45,7 +45,7 @@ console.log(selectedCategory)
           setUrl("list.php?c=list")
           setBackFromSelectedCategory(true)
         } }>Back </Button>
-      </div></>
+      </div></div>
        
   )
 }

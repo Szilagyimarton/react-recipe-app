@@ -12,16 +12,18 @@ import { TextField } from '@mui/material'
 
 function Home() {
   const [recipe,setRecipes] = useState("")
-  const [searchBar, setSearchBar] = useState(null)
+  const [searchBar, setSearchBar] = useState("")
   const [searchResult, setSearchResult] = useState(null)
   const [clickedRecipe,setClickedRecipe] = useState(false)
   const [selectedMealName, setSelectedMealName] = useState("")
+  const [clickedRecipeFromSearching, setClickedRecipeFromSearching] = useState(false)
+  const [selectedMealFromSearching, setSelectedMealFromSearching] = useState(null)
 
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
       .then(res=>res.json())
       .then(data => setRecipes(data.meals))
-  },[clickedRecipe])
+  },[])
   useEffect(()=> {
     if(searchBar){
       fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchBar}`)
@@ -29,37 +31,51 @@ function Home() {
         .then(data => setSearchResult(data))
 
     }
+    if(!searchBar) setSearchResult(null)
   },[searchBar])
 
+  useEffect(() => {
+    if(searchResult){
+      fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${selectedMealName}`)
+        .then(res => res.json())
+        .then(data => setSelectedMealFromSearching(data))
 
+    }
+  },[])
+
+console.log(selectedMealName,selectedMealFromSearching)
   return (
     <Layout>
       <h1>Welcome to this Site!</h1>
       <h2>You can search for a meal, or you can filter by categories and area!</h2>
       <div>
-      <TextField id="standard-basic" label="Search" variant="outlined"  onChange={(event) => setSearchBar(event.target.value)}/>
-     
+        <TextField id="standard-basic" label="Search" variant="outlined"  onChange={(event) => setSearchBar(event.target.value)}/>
       </div>
 
-     {recipe && !searchBar && !clickedRecipe && selectedMealName===""
+     {recipe && searchBar==="" && !clickedRecipe && selectedMealName==="" && !searchResult
      ?
      <>
       <h3>Random recipe</h3>
      <Meal onClick={(event) =>{
-        setSelectedMealName(event.target.parentElement.id)
+        setSelectedMealName(event.target.parentElement.id) 
         setClickedRecipe(true)
      } } recipe={recipe[0]}/>
      </>
      :
      searchResult && searchResult.meals && recipe 
      ?
-     < Meals recipes={searchResult.meals}/>
+     < Meals recipes={searchResult.meals} onClick={(event) =>{
+      setSelectedMealName(event.target.parentElement.id) 
+      setClickedRecipeFromSearching(true)
+   } } recipe={selectedMealFromSearching}/> 
      
       : 
-      recipe && clickedRecipe === true && selectedMealName
+      recipe && clickedRecipe === true && selectedMealName && !selectedMealFromSearching
       ?
-      recipe && <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe}/>
+      recipe && <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe} setSelectedMealName={setSelectedMealName}/>
       :
+      
+ 
       <p>No meals found</p>
     }
     

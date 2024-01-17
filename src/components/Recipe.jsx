@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Button } from '@mui/material';
 
-function Recipe({  selectedMealName,setClickedRecipe}) {
+function Recipe({  selectedMealName,setClickedRecipe, setSelectedMealName}) {
   const [selectedRecipe,setSelectedRecipe] = useState(null)
   useEffect(() => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${selectedMealName}
@@ -29,7 +29,10 @@ function Recipe({  selectedMealName,setClickedRecipe}) {
             <h3>{selectedRecipe.strArea}</h3>
             <p>{selectedRecipe.strInstructions}</p>
            
-            <Button onClick={() => setClickedRecipe(false)}>Back</Button>
+            <Button onClick={() => {
+              setClickedRecipe(false)
+              setSelectedMealName("")
+            }}>Back</Button>
           
           </CardContent>
         </Card>
