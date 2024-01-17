@@ -29,8 +29,8 @@ function Categories() {
       categories && backFromSelectedCategory === true && categories.map((category,index) => (
         <div className='category' key={index}>
           <Button variant="outlined"  onClick={(event)=>{
-            setUrl(`filter.php?c=${event.target.innerHTML}`)
-            setCategory(event.target.innerHTML)
+            setUrl(`filter.php?c=${event.target.textContent}`)
+            setCategory(event.target.textContent)
             setBackFromSelectedCategory(false)
             }}>{category.strCategory}</Button>
         </div>
