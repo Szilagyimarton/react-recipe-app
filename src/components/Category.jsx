@@ -16,7 +16,7 @@ function Category({ category,setBackFromSelectedCategory,setUrl}) {
        })
     
   },[])
-
+console.log(selectedCategory)
   return (
     <div><div className='recipes'>
       {selectedCategory &&

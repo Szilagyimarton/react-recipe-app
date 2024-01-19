@@ -32,7 +32,7 @@ function Home() {
 
     }
     if(!searchBar) setSearchResult(null)
-  },[searchBar])
+  },[searchBar,clickedRecipeFromSearching])
 
   useEffect(() => {
     if(searchResult){
@@ -43,16 +43,23 @@ function Home() {
     }
   },[])
 
-console.log(selectedMealName,selectedMealFromSearching)
+console.log(clickedRecipeFromSearching,selectedMealFromSearching)
   return (
     <Layout>
       <h1>Welcome to this Site!</h1>
       <h2>You can search for a meal, or you can filter by categories and area!</h2>
       <div>
-        <TextField id="standard-basic" label="Search" variant="outlined"  onChange={(event) => setSearchBar(event.target.value)}/>
+        <TextField id="standard-basic" label="Search" variant="outlined"  onChange={(event) => {
+          setClickedRecipeFromSearching(false)
+          setSearchBar(event.target.value)}}/>
       </div>
 
-     {recipe && searchBar==="" && !clickedRecipe && selectedMealName==="" && !searchResult
+     {
+        clickedRecipeFromSearching
+        ?
+        <Recipe selectedMealName={selectedMealFromSearching} /> 
+        :
+       recipe && searchBar==="" && !clickedRecipe && selectedMealName==="" && !searchResult && !selectedMealFromSearching
      ?
      <>
       <h3>Random recipe</h3>
@@ -65,17 +72,16 @@ console.log(selectedMealName,selectedMealFromSearching)
      searchResult && searchResult.meals && recipe 
      ?
      < Meals recipes={searchResult.meals} onClick={(event) =>{
-      setSelectedMealName(event.target.parentElement.id) 
+      setSelectedMealFromSearching(event.target.parentElement.id) 
       setClickedRecipeFromSearching(true)
-   } } recipe={selectedMealFromSearching}/> 
+   } } /> 
      
       : 
-      recipe && clickedRecipe === true && selectedMealName && !selectedMealFromSearching
+      recipe && clickedRecipe  && selectedMealName && !selectedMealFromSearching && clickedRecipeFromSearching
       ?
       recipe && <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe} setSelectedMealName={setSelectedMealName}/>
       :
-      
- 
+  
       <p>No meals found</p>
     }
     
