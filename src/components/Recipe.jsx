@@ -17,7 +17,7 @@ function Recipe({  selectedMealName,setClickedRecipe, setSelectedMealName}) {
  <> 
     {selectedRecipe && 
   
-      <Card className="recipe" id={selectedRecipe.strMeal} sx={{ maxWidth: 800 }}>
+      <Card className="recipe" id={selectedRecipe.strMeal} sx={{ maxWidth: 800 }} >
 
           <CardMedia
             sx={{ minWidth:200, minHeight:300 }}

@@ -43,12 +43,12 @@ function Home() {
     }
   },[])
 
-console.log(clickedRecipeFromSearching,selectedMealFromSearching)
+console.log(searchBar)
   return (
     <Layout>
       <h1>Welcome to this Site!</h1>
       <h2>You can search for a meal, or you can filter by categories and area!</h2>
-      <div>
+      <div className='inputField'>
         <TextField id="standard-basic" label="Search" variant="outlined"  onChange={(event) => {
           setClickedRecipeFromSearching(false)
           setSearchBar(event.target.value)}}/>
@@ -57,9 +57,9 @@ console.log(clickedRecipeFromSearching,selectedMealFromSearching)
      {
         clickedRecipeFromSearching
         ?
-        <Recipe selectedMealName={selectedMealFromSearching} /> 
+        <Recipe selectedMealName={selectedMealFromSearching} setClickedRecipe={setClickedRecipeFromSearching} setSelectedMealName={setSelectedMealFromSearching}/> 
         :
-       recipe && searchBar==="" && !clickedRecipe && selectedMealName==="" && !searchResult && !selectedMealFromSearching
+       recipe && searchBar==="" && !clickedRecipe && selectedMealName==="" && !searchResult 
      ?
      <>
       <h3>Random recipe</h3>
@@ -77,7 +77,7 @@ console.log(clickedRecipeFromSearching,selectedMealFromSearching)
    } } /> 
      
       : 
-      recipe && clickedRecipe  && selectedMealName && !selectedMealFromSearching && clickedRecipeFromSearching
+      recipe && clickedRecipe  && selectedMealName 
       ?
       recipe && <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe} setSelectedMealName={setSelectedMealName}/>
       :

@@ -1,6 +1,14 @@
 html{
   min-height: 100vh;
 }
+main > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputField{
+  margin-bottom: 10px;
+}
 .recipes{
   display: flex;
   flex-wrap: wrap;
