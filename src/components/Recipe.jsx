@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Button } from '@mui/material';
 
+import './Recipe.css'
+
 function Recipe({  selectedMealName,setClickedRecipe, setSelectedMealName}) {
   const [selectedRecipe,setSelectedRecipe] = useState(null)
   useEffect(() => {
@@ -17,11 +19,11 @@ function Recipe({  selectedMealName,setClickedRecipe, setSelectedMealName}) {
  <> 
     {selectedRecipe && 
   
-      <Card className="recipe" id={selectedRecipe.strMeal} sx={{ maxWidth: 800 }} >
+      <Card className="recipe" id={selectedRecipe.strMeal}  >
 
           <CardMedia
             sx={{ minWidth:200, minHeight:300 }}
-            image={`${selectedRecipe.strMealThumb}/preview`}
+            image={`${selectedRecipe.strMealThumb}`}
             title={selectedRecipe.strMeal} />
           <CardContent>
             <h1>{selectedRecipe.strMeal}</h1>
