@@ -1,24 +1,30 @@
 footer{
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+  box-sizing: border-box;
+text-align: center;
   background-color: rgb(196, 191, 191);
-  padding: 15px;
+
   border-radius: 5px;
-  box-shadow: 0 5px  5px black;
-  margin-top:20px;
-  margin-bottom:5px;
+  box-shadow: 0 5px 5px black;
+  margin: 15px 5px 0;
+  padding: 15px;
+
+  position: fixed;
+  bottom: 0;
  
+  width: calc(100% - 10px);
+
+  height: 40px;
 }
-footer a{
+ footer a{
   text-decoration: unset;
   color:unset ;
   letter-spacing: 1px;
   text-transform: uppercase;
   
   padding: 10px;
-}
+} 
 
 html{
   position: relative;
+  
 }

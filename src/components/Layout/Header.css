@@ -4,9 +4,10 @@ header{
   justify-content: center;
   background-color: rgb(196, 191, 191);
   padding: 15px;
+
   border-radius: 5px;
   box-shadow: 0 5px 5px black;
-  margin-bottom:20px
+  margin:0px 5px 15px 5px;
 }
 header a{
   text-decoration: unset;

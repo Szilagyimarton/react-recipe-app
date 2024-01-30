@@ -1,10 +1,11 @@
-import React from 'react'
 import './Footer.css'
 
 
 function Footer() {
   return (
-    <footer>Copyright @ Marton Szilagyi 2024</footer>
+    <footer><p>
+      Copyright @ Marton Szilagyi 2024
+      </p></footer>
   )
 }
 

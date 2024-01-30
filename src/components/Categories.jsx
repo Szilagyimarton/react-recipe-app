@@ -3,7 +3,8 @@ import Layout from './Layout/Layout.jsx'
 import Category from './Category'
 import { Button } from '@mui/material'
 
-import './Categories.css'
+import '../App.css'
+
 
 function Categories() {
   const [categories, setCategories] = useState(null)

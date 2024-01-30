@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import Layout from './Layout/Layout'
 import Area from './Area'
 import { Button } from '@mui/material'
-
-import './Areas.css'
+import '../App.css'
 
 function Areas() {
   const [areas,setAreas] = useState(null)

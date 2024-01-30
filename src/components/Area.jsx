@@ -13,7 +13,7 @@ function Area({area,setUrl,setBackFromSelectedArea}) {
     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`)
       .then(res => res.json())
       .then(data => setSelectdArea(data))
-  })
+  },[])
   return (
     <div><div className='recipes'>
       {selectedArea && !clickedRecipe
