@@ -3,7 +3,6 @@ import Meal from './Meal'
 import Layout from './Layout/Layout'
 import Meals from './Meals'
 
-
 import '../App.css'
 
 import Recipe from './Recipe'
@@ -43,7 +42,7 @@ function Home() {
     }
   },[])
 
-console.log(searchBar)
+
   return (
     <Layout>
       <h1>Welcome to this Site!</h1>
