@@ -10,18 +10,18 @@ function Category({ category,setBackFromSelectedCategory,setUrl}) {
   const [selectedMealName,setSelectedMealName] = useState(null)
   const [clickedRecipe,setClickedRecipe] = useState(false)
   useEffect(() => {
-        fetch(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(res => res.json())
-        .then(data => {setSelectedCategory(data)
-       })
+        .then(data => setSelectedCategory(data)
+       )
     
   },[])
-console.log(selectedCategory)
+
   return (
     <div><div className='recipes'>
       {selectedCategory &&
-        <>
-          {selectedCategory.meals && !clickedRecipe
+        
+          selectedCategory.meals && !clickedRecipe
             ?
             selectedCategory.meals.map((category, index) => (
               <Meal recipe={category} key={index} onClick={(event) => {
@@ -31,14 +31,11 @@ console.log(selectedCategory)
             } />
             ))
             :
-            clickedRecipe 
-            ?
-            <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe}/>
-            :
-            <p>No Meal Found!</p>}
+            selectedMealName && <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe} setSelectedMealName={setSelectedMealName}/>
+        
+          }
 
-
-        </>}
+        
     </div>
     <div className='backBtn'>
         <Button variant="contained"  onClick={() => {

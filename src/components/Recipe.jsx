@@ -31,7 +31,7 @@ function Recipe({  selectedMealName,setClickedRecipe, setSelectedMealName}) {
             <h3>{selectedRecipe.strArea}</h3>
             <p>{selectedRecipe.strInstructions}</p>
            
-            <Button onClick={() => {
+            <Button sx={{marginTop:5, paddingLeft:0}}onClick={() => {
               setClickedRecipe(false)
               setSelectedMealName("")
             }}>Back</Button>

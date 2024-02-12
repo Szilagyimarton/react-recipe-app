@@ -25,7 +25,7 @@ function Area({area,setUrl,setBackFromSelectedArea}) {
           }} />
         ))
         :
-        <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe}/>
+        selectedMealName && <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe} setSelectedMealName={setSelectedMealName}/>
       }
     </div><div className='backBtn'>
         <Button variant="contained" onClick={() => {

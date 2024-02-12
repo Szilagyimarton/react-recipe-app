@@ -81,7 +81,7 @@ function Home() {
       recipe && <Recipe selectedMealName={selectedMealName} setClickedRecipe={setClickedRecipe} setSelectedMealName={setSelectedMealName}/>
       :
   
-      <p>No meals found</p>
+      <p>No meal found</p>
     }
     
     </Layout>
