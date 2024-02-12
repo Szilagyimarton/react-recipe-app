@@ -1,6 +1,11 @@
 .recipe{
   width: 80vw;
+  
 }
+.recipe h1,.recipe h2,.recipe h3{
+  margin-bottom: 10px;
+}
+
 .recipeImage{
   width: 200px;
 }

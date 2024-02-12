@@ -24,7 +24,8 @@ function Areas() {
       ?
         areas.meals.map((area,index) => (
         <div className="area" key={index}>
-          <Button variant="outlined" onClick={(event) => {
+          <Button sx={{width:150}}
+          variant="outlined" onClick={(event) => {
             setUrl(`filter.php?a=${event.target.textContent}`)
             setArea(event.target.textContent)
             setBackFromSelectedArea(false)

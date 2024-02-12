@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 html{
   min-height: 100vh;
@@ -12,11 +13,23 @@ main > div{
   padding: 10px;
   margin-bottom: 60px;
 }
-main > div h1,h2,h3{
+.home h1{
   margin-bottom: 10px;
 }
 .inputField{
   margin-bottom: 20px;
+}
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.randomRecipe h3{
+  margin-bottom: 10px;
+}
+.home h2{
+  text-align: center;
 }
 .recipes{
   display: flex;

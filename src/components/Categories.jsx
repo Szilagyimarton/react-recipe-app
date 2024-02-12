@@ -30,7 +30,8 @@ function Categories() {
      ?
       categories.meals.map((category,index) => (
         <div className='category' key={index}>
-          <Button variant="outlined"  onClick={(event)=>{
+          <Button sx={{width:150}}
+          variant="outlined"  onClick={(event)=>{
             setUrl(`filter.php?c=${event.target.textContent}`)
             setCategory(event.target.textContent)
             setBackFromSelectedCategory(false)

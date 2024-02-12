@@ -45,12 +45,14 @@ function Home() {
 
   return (
     <Layout>
-      <h1>Welcome to this Site!</h1>
-      <h2>You can search for a meal, or you can filter by categories and area!</h2>
-      <div className='inputField'>
-        <TextField id="standard-basic" label="Search" variant="outlined"  onChange={(event) => {
-          setClickedRecipeFromSearching(false)
-          setSearchBar(event.target.value)}}/>
+      <div className='home'>
+        <h1>Welcome to this Site!</h1>
+        <h2>You can search for a meal, or you can filter by categories and area!</h2>
+        <div className='inputField'>
+          <TextField id="standard-basic" label="Search" variant="outlined"  onChange={(event) => {
+            setClickedRecipeFromSearching(false)
+            setSearchBar(event.target.value)}}/>
+        </div>
       </div>
 
      {
@@ -60,13 +62,13 @@ function Home() {
         :
        recipe && searchBar==="" && !clickedRecipe && selectedMealName==="" && !searchResult 
      ?
-     <>
+     <div className='randomRecipe'>
       <h3>Random recipe</h3>
      <Meal onClick={(event) =>{
         setSelectedMealName(event.target.parentElement.id) 
         setClickedRecipe(true)
      } } recipe={recipe[0]}/>
-     </>
+     </div>
      :
      searchResult && searchResult.meals && recipe 
      ?
